@@ -68,7 +68,7 @@ const router = createBrowserRouter([
                 element: <Newsletter />,
                 action: newsletterAction,
             },
-        ]
+        ],
     },
 ]);
 

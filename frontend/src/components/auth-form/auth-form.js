@@ -9,7 +9,6 @@ function AuthForm() {
     const isSubmitting = navigation.state === 'submitting';
     const [searchParams] = useSearchParams();
     const isLogin = searchParams.get('mode') === 'login';
-    console.log('LOGIN', isLogin);
 
     return (
         <>
@@ -22,7 +21,7 @@ function AuthForm() {
                         ))}
                     </ul>
                 )}
-                {data && data.message && <p>{data.message}</p>}
+                {data && data.message && <p style={{color: 'white'}}>{data.message}</p>}
                 <p>
                     <label htmlFor="email">Email</label>
                     <input id="email" type="email" name="email" required/>

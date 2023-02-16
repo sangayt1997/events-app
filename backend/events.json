@@ -39,8 +39,13 @@
   "users": [
     {
       "email": "test@gmail.com",
-      "password": "$2a$12$7gWCizLBengowd3CSb/ETOzaxPKJ3S3avnvNm4A2wb1Azn/RdSKZ.",
-      "id": "036aa222-70c7-4659-8952-08f1ae1cbce4"
+      "password": "test123",
+      "id": "9a07caf4-f155-456b-9cb1-a699823de10c"
+    },
+    {
+      "email": "test1@gmail.com",
+      "password": "$2a$12$BYt0tR0naW4qcJpHOoYf3uYs2CHCfQ8tgAjgMPod6F1gJ.Ra00Fbi",
+      "id": "a5cbf549-77ab-42b0-97a0-cc6b2ff2b90a"
     }
   ]
 }
