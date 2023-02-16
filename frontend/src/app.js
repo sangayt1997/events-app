@@ -13,6 +13,7 @@ import MainEventsLayout from "./pages/main-events-layout/main-events-layout";
 import Error from "./pages/error/error";
 import { action as dynamicEventAction } from "./components/event-form/event-form";
 import Newsletter, { action as newsletterAction } from "./pages/news-letter/news-letter";
+import Authentication, { action as authAction} from "./pages/authentication/authentication";
 
 const router = createBrowserRouter([
     {
@@ -56,6 +57,11 @@ const router = createBrowserRouter([
                         action: dynamicEventAction
                     },
                 ]
+            },
+            {
+                path: 'auth',
+                element: <Authentication />,
+                action: authAction
             },
             {
                 path: 'newsletter',

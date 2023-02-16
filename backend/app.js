@@ -2,6 +2,7 @@ const bodyParser = require('body-parser');
 const express = require('express');
 const cors = require('cors');
 const eventRoutes = require('./routes/events');
+const authRoutes = require('./routes/auth');
 
 const app = express();
 
@@ -19,6 +20,8 @@ app.use((req, res, next) => {
 //   maxAge: 3600,
 //   exposedHeaders: 'Content-Type'
 // }));
+
+app.use(authRoutes);
 
 app.use('/events', eventRoutes);
 
