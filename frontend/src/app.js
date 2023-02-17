@@ -14,12 +14,16 @@ import Error from "./pages/error/error";
 import { action as dynamicEventAction } from "./components/event-form/event-form";
 import Newsletter, { action as newsletterAction } from "./pages/news-letter/news-letter";
 import Authentication, { action as authAction} from "./pages/authentication/authentication";
+import { action as logoutAction } from "./pages/logout/logout";
+import { checkAuthLoader, tokenLoader } from "./util/auth";
 
 const router = createBrowserRouter([
     {
         path: '/',
         element: <MainLayout/>,
         errorElement: <Error/>,
+        id: 'root',
+        loader: tokenLoader ,
         children: [
             {
                 index: true,
@@ -47,14 +51,16 @@ const router = createBrowserRouter([
                             {
                                 path: 'edit',
                                 element: <EditEvent/>,
-                                action: dynamicEventAction
+                                action: dynamicEventAction,
+                                loader: checkAuthLoader
                             },
                         ]
                     },
                     {
                         path: 'new',
                         element: <NewEvent/>,
-                        action: dynamicEventAction
+                        action: dynamicEventAction,
+                        loader: checkAuthLoader
                     },
                 ]
             },
@@ -68,6 +74,10 @@ const router = createBrowserRouter([
                 element: <Newsletter />,
                 action: newsletterAction,
             },
+            {
+                path: 'logout',
+                action: logoutAction,
+            }
         ],
     },
 ]);

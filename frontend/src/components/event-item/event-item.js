@@ -1,17 +1,17 @@
 import React from "react";
 import classes from './event-item.module.css';
-import { Link, useSubmit } from "react-router-dom";
+import { Link, useRouteLoaderData, useSubmit } from "react-router-dom";
 
 function EventItem({events}) {
+    const token = useRouteLoaderData('root');
     const submit = useSubmit();
 
     function startDeleteHandler() {
         const proceed = window.confirm('Are you sure?');
 
         if (proceed) {
-            submit(null, { method: 'delete' });
+            submit(null, {method: 'delete'});
         }
-
     }
 
     return (
@@ -20,10 +20,12 @@ function EventItem({events}) {
             <h1>{events?.title}</h1>
             <time>{events?.date}</time>
             <p>{events?.description}</p>
-            <menu className={classes.actions}>
-                <Link to="edit">Edit</Link>
-                <button onClick={startDeleteHandler}>Delete</button>
-            </menu>
+            {token && (
+                <menu className={classes.actions}>
+                    <Link to="edit">Edit</Link>
+                    <button onClick={startDeleteHandler}>Delete</button>
+                </menu>
+            )}
         </article>
     );
 }
